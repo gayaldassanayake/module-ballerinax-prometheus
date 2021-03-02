@@ -295,6 +295,6 @@ task codeCoverageReport(type: JacocoReport) {
 
 task build {
     dependsOn('prometheus-extension-ballerina:build')
-    finalizedBy(codeCoverageReport)
+    // finalizedBy(codeCoverageReport)
 }
 
