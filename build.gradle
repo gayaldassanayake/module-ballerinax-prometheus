@@ -272,10 +272,6 @@ release {
     }
 }
 
-task build {
-    dependsOn('prometheus-extension-ballerina:build')
-}
-
 task codeCoverageReport(type: JacocoReport) {
     dependsOn('prometheus-extension-ballerina:extractBallerinaClassFiles')
 
@@ -295,5 +291,10 @@ task codeCoverageReport(type: JacocoReport) {
     onlyIf = {
         true
     }
+}
+
+task build {
+    dependsOn('prometheus-extension-ballerina:build')
+    finalizedBy(codeCoverageReport)
 }
 
